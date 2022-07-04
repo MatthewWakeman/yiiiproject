@@ -9,14 +9,14 @@ use yii\web\Response;
 use yii\filters\VerbFilter;
 use app\models\LoginForm;
 use app\models\ContactForm;
+use app\models\CalculateRoman;
+use app\models\CalculateInteger;
 
-class SiteController extends Controller
-{
+class SiteController extends Controller {
     /**
      * {@inheritdoc}
      */
-    public function behaviors()
-    {
+    public function behaviors() {
         return [
             'access' => [
                 'class' => AccessControl::className(),
@@ -117,6 +117,34 @@ class SiteController extends Controller
     }
 
     /**
+     * Displays roman page.
+     *
+     * @return string
+     */
+    public function actionRoman() {
+        $model = new CalculateRoman();
+        if ($model->load(Yii::$app->request->post())) {
+            return $this->render('roman', ['answer'=>$model->calculate()]);
+        } else {
+            return $this->render('roman', ['model' => $model]);
+        }
+    }
+
+    /**
+     * Displays integer page.
+     *
+     * @return string
+     */
+    public function actionInteger() {
+        $model = new CalculateInteger();
+        if ($model->load(Yii::$app->request->post())) {
+            return $this->render('integer', ['answer'=>$model->calculate()]);
+        } else {
+            return $this->render('integer', ['model' => $model]);
+        }
+    }
+
+    /**
      * Displays about page.
      *
      * @return string
@@ -125,4 +153,5 @@ class SiteController extends Controller
     {
         return $this->render('about');
     }
+
 }
