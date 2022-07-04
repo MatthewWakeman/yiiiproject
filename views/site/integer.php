@@ -20,7 +20,7 @@ $this->params['breadcrumbs'][] = $this->title;
 
 <?php $form = ActiveForm::begin(['id' => 'contact-form']); ?>
 
-    <?= $form->field($model, 'value') ?>
+    <?= $form->field($model, 'value')->textInput(['type' => 'number', 'max' => 100000]) ?>
 
     <div class="form-group">
         <?= Html::submitButton('Calculate', ['class' => 'btn btn-primary', 'name' => 'contact-button']) ?>
@@ -29,4 +29,5 @@ $this->params['breadcrumbs'][] = $this->title;
 <?php ActiveForm::end(); ?>
 <?php } else { ?>
     <h1><?= $answer ?></h1>
+    <a href="" class="btn btn-primary">Try Again</a>
 <?php } ?>
