@@ -11,6 +11,7 @@ use yii\captcha\Captcha;
 $this->title = 'Roman Calculator';
 $this->params['breadcrumbs'][] = $this->title;
 ?>
+<?php if (! isset($answer)) { ?>
 
 <div class="site-contact">
     <h1><?= Html::encode($this->title) ?></h1>
@@ -25,6 +26,6 @@ $this->params['breadcrumbs'][] = $this->title;
     </div>
 
 <?php ActiveForm::end(); ?>
-<?php if (isset($answer)) { ?>
+<?php } else { ?>
     <h1><?= $answer ?></h1>
 <?php } ?>
