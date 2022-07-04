@@ -68,7 +68,7 @@
     "repositories": [
         {
             "type": "git",
-            "url": "https://github.com/MatthewWakeman/yiiiproject"
+            "url": "https://github.com/MatthewWakeman/yiiiproject.git"
         }
     ]
 }
